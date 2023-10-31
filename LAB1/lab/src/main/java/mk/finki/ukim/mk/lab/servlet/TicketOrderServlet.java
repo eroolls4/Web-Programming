@@ -28,12 +28,13 @@ public class TicketOrderServlet extends HttpServlet {
 
         WebContext context = new WebContext(webExchange);
 
-        context.setVariable("name", req.getParameter("title"));
-        context.setVariable("num", req.getParameter("tickets"));
-        context.setVariable("ip", req.getRemoteAddr() );
+        context.setVariable("clientName", req.getParameter("clientName")); // Replace with your logic to get client name
+        context.setVariable("clientIp", req.getRemoteAddr());
+        context.setVariable("movieTitle", req.getParameter("title"));
+        context.setVariable("numTickets", req.getParameter("tickets"));
 
         springTemplateEngine.process("orderConfirmation.html",
-                                              context,
-                                              resp.getWriter());
+                context,
+                resp.getWriter());
     }
 }

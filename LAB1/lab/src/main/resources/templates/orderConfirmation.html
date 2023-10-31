@@ -30,19 +30,19 @@
     </tr>
     <tr>
       <td><b>Client Name </b></td>
-      <td>Petko Petkov</td>
+      <td th:text="${clientName}"></td>
     </tr>
     <tr>
       <td><b>Client IP Address</b></td>
-      <td>127.0.0.1</td>
+      <td th:text="${clientIp}"></td>
     </tr>
     <tr>
       <td><b>Ticket for Movie</b></td>
-      <td>Oppenheimer</td>
+      <td th:text="${movieTitle}"></td>
     </tr>
     <tr>
       <td><b>Number of tickets</b></td>
-      <td>2</td>
+      <td th:text="${numTickets}"></td>
     </tr>
   </table>
 </section>
