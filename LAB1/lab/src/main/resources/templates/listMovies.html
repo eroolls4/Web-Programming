@@ -24,6 +24,15 @@
     <input type="submit" value="Submit" >
   </form>
 
+
+
+<!--   <form th:method="post" th:action="@{/}">-->
+<!--    <h2>Enter Name</h2>-->
+<!--    <input type="text" name="userName">-->
+<!--    <input type="submit" value="Submit"> </br>-->
+<!--  </form>-->
+
+
   <form th:method="post" th:action="@{/}">
     <h2>Choose movie:</h2>
     <ul th:each="movie : ${movies}">
@@ -32,6 +41,8 @@
     <h2>Choose number of tickets:</h2>
     <input type="number" name="numTickets" min="1" max="10"><br/>
     <br/>
+    <h2>Enter Name</h2>
+    <input type="text" name="userName">
     <input type="submit" value="Submit" >
   </form>
 </main>

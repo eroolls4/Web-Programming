@@ -28,7 +28,7 @@ public class TicketOrderServlet extends HttpServlet {
 
         WebContext context = new WebContext(webExchange);
 
-        context.setVariable("clientName", req.getParameter("clientName")); // Replace with your logic to get client name
+        context.setVariable("userName", req.getParameter("userName"));
         context.setVariable("clientIp", req.getRemoteAddr());
         context.setVariable("movieTitle", req.getParameter("title"));
         context.setVariable("numTickets", req.getParameter("tickets"));

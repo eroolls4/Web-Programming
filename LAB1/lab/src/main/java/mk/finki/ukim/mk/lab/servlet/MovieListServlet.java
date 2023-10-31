@@ -30,6 +30,7 @@ public class MovieListServlet extends HttpServlet {
         WebContext context = new WebContext(webExchange);
 
         context.setVariable("movies", movieService.listAll());
+        context.setVariable("userName" ,req.getParameter("userName"));
 
         springTemplateEngine.process(
                 "listMovies.html",
@@ -39,11 +40,20 @@ public class MovieListServlet extends HttpServlet {
 
     }
 
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String userName = req.getParameter("userName");
+        if (userName != null) {
+            req.getSession().setAttribute("userName", userName);
+        }
+
         String title = req.getParameter("radio");
-        int tickets = Integer.parseInt(req.getParameter("numTickets"));
-        System.out.println(title + tickets);
-        resp.sendRedirect("/ticketOrder?title=" + title + "&tickets=" + tickets);
+        if (title != null) {
+            int tickets = Integer.parseInt(req.getParameter("numTickets"));
+            System.out.println(title + tickets);
+            resp.sendRedirect("/ticketOrder?title=" + title + "&tickets=" + tickets + "&userName=" + req.getParameter("userName"));
+        }
     }
+
 }
