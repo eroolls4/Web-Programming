@@ -11,8 +11,6 @@ import java.util.stream.*;
 @Repository
 public class InMemoryMovieRepository {
 
-
-
     public List<Movie> findAll(){
         return DataHolder.movies;
     }
@@ -44,12 +42,4 @@ public class InMemoryMovieRepository {
         }
     }
 
-
-    public void addMovie(Movie movie) {
-        DataHolder.movies.add(movie);
-    }
-
-    public Movie findByTitle(String title) {
-       return DataHolder.movies.stream().filter(m -> m.getTitle().equals(title)).findFirst().orElse(null);
-    }
 }

@@ -21,28 +21,61 @@
     <input type="text" name="textFilter">
     <label>Rating of at least:</label>
     <input type="number" name="ratingFilter" min="5.0" max="10.0" step="0.1">
-    <input type="submit" value="Submit" >
+    <input type="submit" value="Filter" >
   </form>
 
   <form th:method="post" th:action="@{/}">
     <h2>Choose movie:</h2>
     <ul th:each="movie : ${movies}">
       <input type="radio" name="radio" th:value="${movie.getTitle()}" th:text="'Title: '+ ${movie.getTitle()} + ', Summary: ' + ${movie.getSummary()} + ', Rating: ' +${movie.getRating()} ">
+        <input th:action="@{/changeRating}" type="submit"  value="Change Rating" th:id="${movie.getTitle()}">
     </ul>
+
+<!--    <h2>Choose movie:</h2>-->
+<!--    <ul th:each="movie : ${movies}">-->
+<!--      <li>-->
+<!--        <input type="radio" name="radio" th:value="${movie.getTitle()}" th:text="'Title: '+ ${movie.getTitle()} + ', Summary: ' + ${movie.getSummary()} + ', Rating: ' +${movie.getRating()} ">-->
+<!--        <form th:action="@{/changeRating}" method="post">-->
+<!--          <input type="hidden" th:value="${movie.getTitle()}" name="movieTitle"/>-->
+<!--          <input type="number" name="newRating" min="0" max="10" step="1.0">-->
+<!--          <input type="submit" value="Change Rating">-->
+<!--        </form>-->
+<!--      </li>-->
+<!--    </ul>-->
+
+      <!--    <h2>Choose movie:</h2>-->
+<!--      <select name="movies" multiple="multiple">-->
+<!--          <option th:each="movie : ${movies}" th:value="${movie.getTitle()}" th:text="${movie.getTitle()}"></option>-->
+<!--      </select>-->
+
+<!--      <h2>Choose movie:</h2>-->
+<!--      <div th:each="movie : ${movies}">-->
+<!--          <input type="checkbox" name="movies" th:value="${movie.getTitle()}" th:id="${movie.getTitle()}" />-->
+<!--          <label th:for="${movie.getTitle()}" th:text="${movie.getTitle()} + ', Summary: ' + ${movie.getSummary()} + ', Rating: ' +${movie.getRating()}"></label>-->
+<!--      </div>-->
+
+
     <h2>Choose number of tickets:</h2>
     <input type="number" name="numTickets" min="1" max="10"><br/>
     <br/>
-    <input type="submit" value="Submit" >
+    <h2>Enter Your  Name</h2>
+    <input type="text" name="userName"></br>
+    <h2>CLICK BELOW TO MAKE A ORDER!!!</h2>
+    <input type="submit" value="Make Order" ></br> </br>
   </form>
 
 
+<!--<h2> FILL BELOW TO ADD A NEW MOVIE TO THE LIST</h2>-->
+<!--  <form action="#" th:action="@{/addMovie}" method="post">-->
+<!--    <input type="text" name="title" placeholder="Movie Title">-->
+<!--    <input type="text" name="genre" placeholder="Genre">-->
+<!--    <input type="text" name="rating" placeholder="Rating">-->
+<!--    <input type="submit" value="Add Movie">-->
+<!--  </form>-->
+<!--  -->
+    <a href="/addMovie">CLICK TO ADD A NEW MOVIE</a>
 
-  <form action="#" th:action="@{/addMovie}" method="post">
-    <input type="text" name="title" placeholder="Movie Title">
-    <input type="text" name="genre" placeholder="Genre">
-    <input type="text" name="rating" placeholder="Rating">
-    <input type="submit" value="Add Movie">
-  </form>
+  <a href="/history">CLICK HERE TO VIEW HISTORY!!!</a> </br>
 
 
 </main>

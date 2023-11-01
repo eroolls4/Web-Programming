@@ -1,7 +1,6 @@
 package mk.finki.ukim.mk.lab.servlet;
 
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -24,8 +23,8 @@ public class TicketOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         IWebExchange webExchange = JakartaServletWebApplication
-                .buildApplication(getServletContext())
-                .buildExchange(req, resp);
+                                  .buildApplication(getServletContext())
+                                  .buildExchange(req, resp);
 
         WebContext context = new WebContext(webExchange);
 
@@ -39,4 +38,3 @@ public class TicketOrderServlet extends HttpServlet {
                 resp.getWriter());
     }
 }
-

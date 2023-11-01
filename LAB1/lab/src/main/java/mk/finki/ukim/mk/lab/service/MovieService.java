@@ -8,9 +8,4 @@ public interface MovieService {
 
     List<Movie> listAll();
     List<Movie> searchMovies(String text, String rating);
-
-
-    void addMovie(Movie movie);
-
-    void updateRating(String title, double newRating);
 }

@@ -7,8 +7,10 @@ import org.springframework.stereotype.*;
 
 import java.util.*;
 
+
 @Service
-public class MoveServiceImpl implements MovieService {
+public class MoveServiceImpl  implements MovieService {
+
     private final InMemoryMovieRepository inMemoryMovieRepository;
 
     public MoveServiceImpl(InMemoryMovieRepository inMemoryMovieRepository) {
@@ -25,22 +27,4 @@ public class MoveServiceImpl implements MovieService {
         return inMemoryMovieRepository.searchMovies(text, rating);
     }
 
-    @Override
-    public void addMovie(Movie movie) {
-        inMemoryMovieRepository.addMovie(movie);
-    }
-
-    @Override
-    public void updateRating(String title, double newRating) {
-        // Find the movie with the given title
-        Movie movieToUpdate = inMemoryMovieRepository.findByTitle(title);
-
-        if (movieToUpdate != null) {
-
-            movieToUpdate.setRating(newRating);
-        } else {
-
-         //   throw new MovieNotFoundException("Movie with title " + title + " not found");
-        }
-    }
 }

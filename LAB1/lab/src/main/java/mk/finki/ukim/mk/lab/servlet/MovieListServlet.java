@@ -1,7 +1,6 @@
 package mk.finki.ukim.mk.lab.servlet;
 
 
-
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
@@ -12,7 +11,6 @@ import org.thymeleaf.web.*;
 import org.thymeleaf.web.servlet.*;
 
 import java.io.IOException;
-import java.util.*;
 
 @WebServlet(urlPatterns = "")
 public class MovieListServlet extends HttpServlet {
@@ -49,20 +47,13 @@ public class MovieListServlet extends HttpServlet {
         if (userName != null) {
             req.getSession().setAttribute("userName", userName);
         }
+
         String title = req.getParameter("radio");
         if (title != null) {
             int tickets = Integer.parseInt(req.getParameter("numTickets"));
-         //   System.out.println(title + tickets);
+            System.out.println(title + tickets);
             resp.sendRedirect("/ticketOrder?title=" + title + "&tickets=" + tickets + "&userName=" + req.getParameter("userName"));
-
-            Set<String> movieList = (Set<String>) req.getSession().getAttribute("movieList");
-            if (movieList == null) {
-                movieList = new HashSet<>();
-            }
-            movieList.add(title);
-            req.getSession().setAttribute("movieList", movieList);
         }
     }
-
 
 }
