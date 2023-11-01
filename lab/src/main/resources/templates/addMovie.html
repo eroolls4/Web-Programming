@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        body {
+            width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+
+<h2> FILL BELOW TO ADD A NEW MOVIE TO THE LIST</h2>
+<form action="/addMovie" method="post">
+  <input type="text" name="title" placeholder="Movie Title">
+  <input type="text" name="genre" placeholder="Genre">
+  <input type="text" name="rating" placeholder="Rating">
+  <input type="submit" value="Add Movie">
+</form>
+
+</body>
+</html>

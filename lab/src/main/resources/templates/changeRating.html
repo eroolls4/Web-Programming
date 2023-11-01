@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style type="text/css">
+    body {
+      width: 800px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+
+<h2> FILL BELOW TO CHANGE RATING FOR A GIVEN MOVIE</h2>
+<form action="/changeRating" method="post">
+  <input type="text" name="movieTitle" placeholder="Movie Title">
+  <input type="text" name="newRating" placeholder="New Rating">
+  <input type="submit" value="CONFIRM">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>User History</title>
+
+
+  <style type="text/css">
+    body {
+      width: 800px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Welcome back, <span th:text="${userName}"></span>!</h1>
+</header>
+<main>
+  <h2>Your selected movies:</h2>
+  <select>
+    <option th:each="movie : ${movieList}" th:text="${movie}"></option>
+  </select>
+</main>
+</body>
+</html>
